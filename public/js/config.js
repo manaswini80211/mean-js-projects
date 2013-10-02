@@ -1,21 +1,17 @@
 //Setting up route
-window.app.config(['$routeProvider',
-    function($routeProvider) {
-        $routeProvider.
-        when('/articles', {
-            templateUrl: 'views/articles/list.html'
-        }).
-        when('/articles/create', {
-            templateUrl: 'views/articles/create.html'
-        }).
-        when('/articles/:articleId/edit', {
-            templateUrl: 'views/articles/edit.html'
-        }).
-        when('/articles/:articleId', {
-            templateUrl: 'views/articles/view.html'
-        }).
+window.app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.
         when('/', {
-            templateUrl: 'views/index.html'
+            controller: 'ListController',
+            templateUrl: 'views/list.html'
+        }).
+        when('/edit/:projectId', {
+            controller: 'EditController',
+            templateUrl: 'views/detail.html'
+        }).
+        when('/new', {
+            controller: 'CreateController',
+            templateUrl: 'views/detail.html'
         }).
         otherwise({
             redirectTo: '/'
@@ -27,5 +23,4 @@ window.app.config(['$routeProvider',
 window.app.config(['$locationProvider',
     function($locationProvider) {
         $locationProvider.hashPrefix("!");
-    }
-]);
+    }]);
