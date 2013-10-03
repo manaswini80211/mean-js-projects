@@ -8,4 +8,7 @@ HeaderController = angular.module('mean.system')
 	,
 		"title": "Components"
 		"link": "components"
+	,
+		"title": "Todo"
+		"link": "todo"
 	]

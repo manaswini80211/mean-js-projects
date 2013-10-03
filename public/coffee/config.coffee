@@ -15,6 +15,9 @@ window.app.config [
         .when '/components',
             controller: 'BearCounterController'
             templateUrl: 'views/components.html'
+        .when '/todo',
+            controller: 'TodoController'
+            templateUrl: 'views/todo.html'
         .when '/',
             controller: 'IndexController'
             templateUrl: 'views/index.html'
