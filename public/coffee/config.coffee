@@ -2,19 +2,17 @@
 window.app.config [
     '$routeProvider'
     ($routeProvider)->
-        $routeProvider.when '/',
+        $routeProvider
+        .when '/',
             controller: 'ListController'
             templateUrl: 'views/list.html'
-
-        $routeProvider.when '/edit/:projectId',
+        .when '/edit/:projectId',
             controller: 'EditController'
             templateUrl: 'views/detail.html'
-
-        $routeProvider.when '/new',
+        .when '/new',
             controller: 'CreateController'
             templateUrl: 'views/detail.html'
-
-        $routeProvider.otherwise
+        .otherwise
             redirectTo: '/'
         no
 ]
