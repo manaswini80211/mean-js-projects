@@ -12,6 +12,9 @@ window.app.config [
         .when '/new',
             controller: 'CreateController'
             templateUrl: 'views/detail.html'
+        .when '/components',
+            controller: 'BearCounterController'
+            templateUrl: 'views/components.html'
         .otherwise
             redirectTo: '/'
         no
