@@ -1,4 +1,4 @@
-BearCounterController = angular.module('project.components')
+BearCounterController = angular.module('mean.components')
 .controller 'BearCounterController', ($scope, $locale)->
 	$scope.beers = [0, 1, 2, 3, 4, 5, 6]
 	switch $locale.id

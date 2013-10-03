@@ -1,4 +1,4 @@
-angular.module('project.components')
+angular.module('mean.components')
 .directive 'pane', ()->
 	require: '^tabs'
 	restrict: 'E'

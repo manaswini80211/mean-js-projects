@@ -3,7 +3,7 @@ window.app.config [
     '$routeProvider'
     ($routeProvider)->
         $routeProvider
-        .when '/',
+        .when '/projects',
             controller: 'ListController'
             templateUrl: 'views/list.html'
         .when '/edit/:projectId',
@@ -15,8 +15,11 @@ window.app.config [
         .when '/components',
             controller: 'BearCounterController'
             templateUrl: 'views/components.html'
+        .when '/',
+            controller: 'IndexController'
+            templateUrl: 'views/index.html'
         .otherwise
-            redirectTo: '/'
+            redirectTo: '/projects'
         no
 ]
 

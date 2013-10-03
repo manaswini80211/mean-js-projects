@@ -1,4 +1,4 @@
-EditController = angular.module('project')
+EditController = angular.module('mean.project')
 .controller 'EditController', ($scope, $location, $routeParams, Project)=>
 	Project.get { id: $routeParams.projectId }, (project)=>
 		@original = project

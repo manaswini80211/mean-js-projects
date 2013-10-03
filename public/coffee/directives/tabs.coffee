@@ -1,4 +1,4 @@
-angular.module('project.components')
+angular.module('mean.components')
 .directive 'tabs', ()->
 	restrict: 'E'
 	transclude: yes

@@ -1,5 +1,5 @@
 window.bootstrap = ->
-	angular.bootstrap document, ['project']
+	angular.bootstrap document, ['mean']
 
 window.init = ->
 	window.bootstrap()
