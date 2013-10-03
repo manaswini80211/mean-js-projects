@@ -1,8 +1,8 @@
-BearCounterController = angular.module('project')
+BearCounterController = angular.module('project.components')
 .controller 'BearCounterController', ($scope, $locale)->
 	$scope.beers = [0, 1, 2, 3, 4, 5, 6]
 	switch $locale.id
-		when 'en-us'
+		when 'enus'
 	    	$scope.beerForms =
 	    		0: 'no beers'
 	    		one: '{} beer'

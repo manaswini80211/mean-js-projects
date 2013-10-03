@@ -35,18 +35,6 @@ MEAN is a boilerplate that provides a nice starting point for [MongoDB](http://w
 
     $ node server
 
-  Other way to start server to use scripts. Start server:
-
-    $ start-server.sh
-
-  To stop server hit <Ctrl+C> to stop cooffe script translator and run:
-
-    $ stop-server.sh
-
-  Restart server:
-
-    $ restart-server.sh
-    
   Then open a browser and go to:
 
     http://localhost:3000

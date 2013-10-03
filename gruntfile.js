@@ -16,6 +16,13 @@ module.exports = function(grunt) {
                     livereload: true,
                 },
             },
+            coffee: {
+                files: ['public/coffee/**', 'app/**/*.coffee'],
+                tasks: ['coffee'],
+                options: {
+                    livereload: true,
+                },
+            },
             html: {
                 files: ['public/views/**'],
                 options: {
@@ -26,6 +33,24 @@ module.exports = function(grunt) {
                 files: ['public/css/**'],
                 options: {
                     livereload: true
+                }
+            }
+        },
+        coffee: {
+            compileJoined: {
+                options: {
+                    join: true
+                },
+                files: {
+                    'public/js/app.js': 'public/coffee/app.coffee', // 1:1 compile
+                    'public/js/config.js': 'public/coffee/config.coffee', // 1:1 compile
+                    'public/js/filters.js': 'public/coffee/filters.coffee', // 1:1 compile
+                    'public/js/init.js': 'public/coffee/init.coffee', // 1:1 compile
+                    'public/js/controllers.js': ['public/coffee/controllers/*.coffee'], // concat then compile into single file
+                    'public/js/services.js': ['public/coffee/services/*.coffee'], // concat then compile into single file
+                    'public/js/directives.js': ['public/coffee/directives/*.coffee'], // concat then compile into single file
+                    // 'path/to/result.js': 'path/to/source.coffee', // 1:1 compile, identical output to join = false
+                    // 'path/to/another.js': ['path/to/sources/*.coffee', 'path/to/more/*.coffee'] // concat then compile into single file
                 }
             }
         },
@@ -75,6 +100,7 @@ module.exports = function(grunt) {
     });
 
     //Load NPM tasks 
+    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');

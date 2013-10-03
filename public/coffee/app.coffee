@@ -1,3 +1,3 @@
-window.app = angular.module 'project', ['mongolab']
+window.app = angular.module 'project', ['mongolab', 'project.components']
 
-# angular.module 'components', []
+angular.module 'project.components', []

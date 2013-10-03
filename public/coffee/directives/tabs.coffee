@@ -1,4 +1,4 @@
-angular.module('project')
+angular.module('project.components')
 .directive 'tabs', ()->
 	restrict: 'E'
 	transclude: yes
@@ -21,19 +21,8 @@ angular.module('project')
 	'<ul class="nav nav-tabs">' +
 	'<li ng-repeat="pane in panes" ng-class="{active:pane.selected}">' +
 	'<a href="" ng-click="select(pane)">{{pane.title}}</a>' +
-	'</li>' +
+	' </li>' +
 	'</ul>' +
 	'<div class="tab-content" ng-transclude></div>' +
 	'</div>'
-	replace: yes
-.directive 'pane', ()->
-	require: '^tabs'
-	restrict: 'E'
-	transclude: yes
-	scope:
-		title: '@'
-	link: (scope, element, attr, tabsCtrl)->
-		tabsCtrl.addPane scope
-		no
-	template: '<div class="tab-pane" ng-class="{active: selected}" ng-transclude></div>'
 	replace: yes

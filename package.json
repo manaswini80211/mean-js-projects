@@ -36,12 +36,12 @@
         "forever": "latest",
         "grunt": "latest",
         "grunt-cli": "latest",
-        "grunt-bower-task": "latest",
-        "coffee-script": "latest"
+        "grunt-bower-task": "latest"
     },
     "devDependencies": {
         "supertest": "latest",
         "should": "latest",
+        "grunt-contrib-coffee": "latest",
         "grunt-contrib-watch": "latest",
         "grunt-contrib-jshint": "latest",
         "grunt-nodemon": "latest",
