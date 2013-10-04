@@ -17,11 +17,8 @@ module.exports = function(grunt) {
                 },
             },
             coffee: {
-                files: ['public/coffee/**', 'app/**/*.coffee'],
+                files: ['dev/**'],
                 tasks: ['coffee'],
-                options: {
-                    livereload: true,
-                },
             },
             html: {
                 files: ['public/views/**'],
@@ -37,22 +34,36 @@ module.exports = function(grunt) {
             }
         },
         coffee: {
+            compile: {
+                files: [{
+                    expand: true,
+                    cwd: 'dev/app',
+                    src: ['**/*.coffee'],
+                    dest: 'app',
+                    ext: '.js'
+                }, {
+                    expand: true,
+                    cwd: 'dev/config',
+                    src: ['**/*.coffee'],
+                    dest: 'config',
+                    ext: '.js'
+                }, {
+                    'public/js/app.js': 'dev/public/app.coffee', // 1:1 compile
+                    'public/js/config.js': 'dev/public/config.coffee', // 1:1 compile
+                    'public/js/filters.js': 'dev/public/filters.coffee', // 1:1 compile
+                    'public/js/init.js': 'dev/public/init.coffee', // 1:1 compile
+                }]
+            },
             compileJoined: {
                 options: {
                     join: true
                 },
                 files: {
-                    'public/js/app.js': 'public/coffee/app.coffee', // 1:1 compile
-                    'public/js/config.js': 'public/coffee/config.coffee', // 1:1 compile
-                    'public/js/filters.js': 'public/coffee/filters.coffee', // 1:1 compile
-                    'public/js/init.js': 'public/coffee/init.coffee', // 1:1 compile
-                    'public/js/controllers.js': ['public/coffee/controllers/*.coffee'], // concat then compile into single file
-                    'public/js/services.js': ['public/coffee/services/*.coffee'], // concat then compile into single file
-                    'public/js/directives.js': ['public/coffee/directives/*.coffee'], // concat then compile into single file
-                    // 'path/to/result.js': 'path/to/source.coffee', // 1:1 compile, identical output to join = false
-                    // 'path/to/another.js': ['path/to/sources/*.coffee', 'path/to/more/*.coffee'] // concat then compile into single file
+                    'public/js/controllers.js': ['dev/public/controllers/*.coffee'], // concat then compile into single file
+                    'public/js/services.js': ['dev/public/services/*.coffee'], // concat then compile into single file
+                    'public/js/directives.js': ['dev/public/directives/*.coffee'], // concat then compile into single file
                 }
-            }
+            },
         },
         jshint: {
             all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
@@ -100,8 +111,8 @@ module.exports = function(grunt) {
     });
 
     //Load NPM tasks 
-    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-nodemon');
@@ -112,7 +123,7 @@ module.exports = function(grunt) {
     grunt.option('force', true);
 
     //Default task(s).
-    grunt.registerTask('default', ['jshint', 'concurrent']);
+    grunt.registerTask('default', ['jshint', 'concurrent', 'coffee']);
 
     //Test task.
     grunt.registerTask('test', ['mochaTest']);
