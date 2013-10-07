@@ -7,9 +7,4 @@ public/lib/
 public/js/
 app/controllers/
 app/models/
-config/middlewares/
-config/config.js
-config/express.js
-config/passport.js
-config/routes.js
-config/env/all.js
+config/
