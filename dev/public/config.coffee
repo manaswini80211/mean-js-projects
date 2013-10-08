@@ -4,16 +4,16 @@ window.app.config [
     ($routeProvider)->
         $routeProvider
         .when '/projects',
-            controller: 'ListController'
-            templateUrl: 'views/list.html'
-        .when '/edit/:projectId',
-            controller: 'EditController'
-            templateUrl: 'views/detail.html'
-        .when '/new',
-            controller: 'CreateController'
-            templateUrl: 'views/detail.html'
+            controller: 'ProjectsController'
+            templateUrl: 'views/projects/list.html'
+        .when '/projects/:projectId/edit',
+            controller: 'ProjectsController'
+            templateUrl: 'views/projects/edit.html'
+        .when '/projects/new',
+            controller: 'ProjectsController'
+            templateUrl: 'views/projects/create.html'
         .when '/components',
-            controller: 'BearCounterController'
+            controller: 'BeerCounterController'
             templateUrl: 'views/components.html'
         .when '/todo',
             controller: 'TodoController'
@@ -22,7 +22,7 @@ window.app.config [
             controller: 'IndexController'
             templateUrl: 'views/index.html'
         .otherwise
-            redirectTo: '/projects'
+            redirectTo: '/'
         no
 ]
 

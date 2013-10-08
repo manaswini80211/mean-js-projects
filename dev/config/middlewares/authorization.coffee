@@ -20,3 +20,11 @@ exports.article =
             return res.send 401, 'User is not authorized'
         next()
         no
+
+#  Project authorizations routing middleware
+exports.project =
+    hasAuthorization: (req, res, next)->
+        if req.project.user.id isnt req.user.id
+            return res.send 401, 'User is not authorized'
+        next()
+        no

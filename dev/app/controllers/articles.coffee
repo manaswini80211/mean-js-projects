@@ -1,14 +1,10 @@
-# /**
-#  * Module dependencies.
-#  */
+# Module dependencies.
 mongoose = require 'mongoose'
 async = require 'async'
 Article = mongoose.model 'Article'
 _ = require 'underscore'
 
-# /**
-#  * Find article by id
-#  */
+# Find article by id
 exports.article = (req, res, next, id)->
 	Article.load id, (err, article)->
 		if err
@@ -19,9 +15,7 @@ exports.article = (req, res, next, id)->
 		next();
 		no
 
-# /**
-#  * Create a article
-#  */
+# Create a article
 exports.create = (req, res)->
 	article = new Article req.body
 	article.user = req.user
@@ -35,9 +29,7 @@ exports.create = (req, res)->
 			res.jsonp article
 		no
 
-# /**
-#  * Update a article
-#  */
+# Update a article
 exports.update = (req, res)->
 	article = req.article
 
@@ -46,9 +38,7 @@ exports.update = (req, res)->
 	article.save (err)->
 		res.jsonp article
 
-# /**
-#  * Delete an article
-#  */
+# Delete an article
 exports.destroy = (req, res)->
 	article = req.article
 

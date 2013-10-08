@@ -1,5 +1,5 @@
-BearCounterController = angular.module('mean.components')
-.controller 'BearCounterController', ($scope, $locale)->
+BeerCounterController = angular.module('mean.components')
+.controller 'BeerCounterController', ($scope, $locale)->
 	$scope.beers = [0, 1, 2, 3, 4, 5, 6]
 	switch $locale.id
 		when 'enus'

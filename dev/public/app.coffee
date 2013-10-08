@@ -1,4 +1,4 @@
-window.app = angular.module 'mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mongolab', 'mean.system', 'mean.project', 'mean.components', 'mean.todo']
+window.app = angular.module 'mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.project', 'mean.components', 'mean.todo']
 
 angular.module 'mean.system', []
 angular.module 'mean.project', []
